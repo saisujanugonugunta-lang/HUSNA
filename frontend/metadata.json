@@ -1,0 +1,6 @@
+{
+  "name": "ScamShield - Autonomous Job Fraud Intelligence",
+  "description": "Autonomous Job Fraud Intelligence & Verification platform protecting students and job seekers against recruitment fraud, fake placement letters, and upfront fee scams.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

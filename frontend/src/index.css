@@ -1,0 +1,253 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-headline: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f1fbff;
+    color: #001f27;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.025em;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes floatShield {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-7px) scale(1.015); }
+}
+
+@keyframes laserSweep {
+  0% { top: 6%; opacity: 0; }
+  15% { opacity: 0.85; }
+  50% { top: 92%; opacity: 0.9; }
+  85% { opacity: 0.85; }
+  100% { top: 6%; opacity: 0; }
+}
+
+@keyframes scanLaserVertical {
+  0% { top: 0%; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.08); }
+}
+
+@keyframes pulseBeacon {
+  0% { transform: scale(0.92); box-shadow: 0 0 0 0 rgba(18, 144, 227, 0.7); }
+  70% { transform: scale(1.18); box-shadow: 0 0 0 12px rgba(18, 144, 227, 0); }
+  100% { transform: scale(0.92); box-shadow: 0 0 0 0 rgba(18, 144, 227, 0); }
+}
+
+@keyframes pulseAlertPin {
+  0% { transform: scale(0.88); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.75); }
+  70% { transform: scale(1.22); box-shadow: 0 0 0 14px rgba(239, 68, 68, 0); }
+  100% { transform: scale(0.88); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+@keyframes pulseAmberPin {
+  0% { transform: scale(0.88); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.75); }
+  70% { transform: scale(1.2); box-shadow: 0 0 0 12px rgba(245, 158, 11, 0); }
+  100% { transform: scale(0.88); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+@keyframes softGazePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(1.08); }
+}
+
+@keyframes ringSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ringSpinRev {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes sweepGlow {
+  0%, 100% { transform: scale(1); opacity: 0.45; }
+  50% { transform: scale(1.12); opacity: 0.8; }
+}
+
+@keyframes badgePop {
+  0% { transform: scale(0.85) translateY(4px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+@keyframes chipGlowPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(18, 144, 227, 0.25); }
+  50% { box-shadow: 0 0 0 4px rgba(18, 144, 227, 0.15); }
+}
+
+@keyframes dashmove {
+  to { stroke-dashoffset: -1000; }
+}
+
+.shield-float {
+  animation: floatShield 6s ease-in-out infinite;
+}
+
+.laser-scan-line {
+  animation: laserSweep 3.2s ease-in-out infinite;
+}
+
+.node-pulse {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.beacon-pulse {
+  animation: pulseBeacon 2.1s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.pin-pulse {
+  animation: pulseAlertPin 2.2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.pin-pulse-amber {
+  animation: pulseAmberPin 2.4s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.status-breath {
+  animation: softGazePulse 2.5s infinite ease-in-out;
+}
+
+.animate-ring-slow {
+  animation: ringSpin 24s linear infinite;
+}
+
+.animate-ring-rev {
+  animation: ringSpinRev 28s linear infinite;
+}
+
+.animate-sweep-glow {
+  animation: sweepGlow 4s ease-in-out infinite;
+}
+
+.badge-pop {
+  animation: badgePop 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.pulse-glow-chip {
+  animation: chipGlowPulse 2.8s ease-in-out infinite;
+}
+
+.pulse-line {
+  stroke-dasharray: 6 6;
+  animation: dashmove 20s linear infinite;
+}
+
+.glass-shield-pane {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 249, 255, 0.85) 50%, rgba(224, 242, 254, 0.75) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(186, 230, 253, 0.9);
+  box-shadow: 0 20px 40px -10px rgba(18, 144, 227, 0.22), inset 0 1px 2px rgba(255, 255, 255, 0.95), inset 0 -2px 6px rgba(18, 144, 227, 0.08);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.spotlight-overlay {
+  pointer-events: none;
+  background: radial-gradient(circle 180px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(56, 189, 248, 0.18), transparent 70%);
+  transition: opacity 0.25s ease;
+}
+
+.fidelity-card-shadow {
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+}
+
+.fidelity-card-hover {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+.fidelity-card-hover:hover {
+  transform: translateY(-4px) scale(1.008);
+  box-shadow: 0 14px 32px -4px rgba(18, 144, 227, 0.16), 0 6px 14px -2px rgba(15, 23, 42, 0.04);
+  border-color: #7dd3fc;
+}
+
+.btn-interactive {
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, filter 0.22s ease;
+}
+.btn-interactive:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.015);
+}
+.btn-interactive:active:not(:disabled) {
+  transform: translateY(0) scale(0.985);
+}
+
+/* Material symbols utility */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-headline-lg {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+}
+
+.font-headline {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.font-body-md {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.011em;
+  line-height: 1.6;
+}
+
+.font-body-serif {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-label-sm {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.005em;
+}
+
+.font-code-mono {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: -0.015em;
+}
+
+.font-metric {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
